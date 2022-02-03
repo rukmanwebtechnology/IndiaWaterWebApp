@@ -1,1 +1,17 @@
 <p>account-details works!</p>
+
+<div *ngIf="(accountDetails$ | async).length > 0">
+    <table>
+        <tr *ngFor="let accDetail of (accountDetails$ | async)">
+            <td><label>Account DetailId: </label></td>
+            <td>{{ accDetail.accountDetailId}}</td>
+            <td>&nbsp;&nbsp;</td>
+            <td><label>loginId: </label></td>
+            <td>{{ accDetail.loginId}}</td>
+            <td>&nbsp;&nbsp;</td>
+            <td><label>login Password: </label></td>
+            <td>{{ accDetail.loginPassword}}</td>
+            <td>&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+</div>

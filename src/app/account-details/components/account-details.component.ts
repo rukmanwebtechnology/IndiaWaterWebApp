@@ -16,6 +16,7 @@ export class AccountDetailsComponent implements OnInit {
   constructor(private store: Store<any>) { }
 
   ngOnInit(): void {
+    console.log('account detail component');
     let data: IQueries_FilterExpression = {
       filterColumnName: 'LoginId',
       filterOperator: Queries_FilterOperator.GreaterThan,
@@ -30,5 +31,9 @@ export class AccountDetailsComponent implements OnInit {
 
     this.store.dispatch(new FectchAllAccountDetails(new AccountDetails_GetAllRequest(getAllRequest)));
   }
+
+  accountDetails$ = this.store.pipe(select (
+    (state) => state.accountDetails.accountDetails
+  ));
 
 }

@@ -1,8 +1,9 @@
 import { AccountDetailsActionTypes, AccountDetailsActions } from '../actions/account-details.action';
+import { AccountDetails_AccountDetails, AccountDetails_GetAllResponse } from '../../services/apiservice.service';
 
 export interface State {
     loading: boolean;
-    accountDetails: any;
+    accountDetails: AccountDetails_AccountDetails[] | undefined;
 }
 
 export const initialState: State = {
@@ -18,9 +19,11 @@ export function reducer(state = initialState, action: AccountDetailsActions): St
                 loading: true
             };
         case AccountDetailsActionTypes.FectchAllAccountDetailsSuccess:
-            console.log(action.payload);
+            const adresponse: AccountDetails_GetAllResponse = action.payload;
+            console.log(adresponse.accountDetails);
             return {
                 ...state,
+                accountDetails: adresponse.accountDetails,
                 loading: false
             };
         case AccountDetailsActionTypes.FectchAllAccountDetailsError:
