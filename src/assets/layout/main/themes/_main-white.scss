@@ -1,0 +1,55 @@
+// Theme White
+
+// Variables
+
+$app-container-bg: #f1f4f6;
+//$app-sidebar-bg: #2A3F54;
+$app-header-bg: #fafbfc;
+
+$app-sidebar-bg: #e4e6e7;
+
+$app-header-logo-bg: rgba(255, 255, 255, .9);
+
+// Content
+.v-sidebar-menu .vsm-header{
+  color: #5e37a6;
+  border-bottom: 1px solid #5e37a6;
+}
+
+.v-sidebar-menu .vsm-link{
+  color: #F30980;
+}
+
+.v-sidebar-menu .vsm-link:hover, .v-sidebar-menu .vsm-link.active-item, .app-sidebar.text-lighter .v-sidebar-menu .vsm-item.active-item > 
+   .vsm-link, .app-sidebar.text-darker .v-sidebar-menu .vsm-item.active-item > .vsm-link{
+   background-color: #d1f3ff !important;
+   color: #000000 !important;
+}
+.app-theme-white {
+
+  &.app-container {
+    background: $app-container-bg;
+  }
+
+  .app-sidebar {
+    .app-sidebar-content {
+      background: $app-sidebar-bg;
+    }
+  }
+
+  .app-inner-layout__wrapper {
+    border-bottom: $gray-200 solid 1px;
+  }
+
+  .app-page-title {
+    background: #ecf0f3;
+    box-shadow: 3px 3px 3px #a29d9d;
+  }
+
+  .app-sidebar .app-header__logo,
+  .app-footer .app-footer__inner,
+  .app-header {
+    background: $app-header-bg;
+  }
+
+}

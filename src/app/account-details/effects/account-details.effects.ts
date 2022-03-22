@@ -7,7 +7,9 @@ import { AccountDetailsActionTypes, AccountDetailsActions, FectchAllAccountDetai
         , FectchAllAccountDetailsError } from '../actions/account-details.action';
 import { AccountDetailsClient } from '../../services/apiservice.service';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+  })
 export class AccountDetailsEffects {
     @Effect()
     AccountsDetails$ = this.actions$.pipe(

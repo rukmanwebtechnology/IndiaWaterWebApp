@@ -1,0 +1,230 @@
+<div [class]="'app-sidebar sidebar-shadow ' + (config$ | async)">
+  <div class="app-header__logo">
+    <img [src]="globals.toggleSidebar ? (globals.toggleSidebar && (globals.sidebarHover || globals.toggleSidebarMobile)? '../../../../assets/images/logo-inverse.png' : '../../../../assets/images/logo-icon.png') : '../../../../assets/images/logo-inverse.png'" />
+    <!-- <div class="logo-src"></div> -->
+    <div class="ml-auto">
+      <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
+      [ngClass]="{'is-active' : !globals.toggleSidebar}" (click)="toggleSidebar()">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    </div>    
+    <!-- <div class="header__pane ml-auto">
+      <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
+        [ngClass]="{'is-active' : globals.toggleSidebar}" (click)="toggleSidebar()">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+    </div> -->
+  </div>
+  <div class="app-sidebar-content">
+    <perfect-scrollbar [autoPropagation]="true" style="max-height: 500px;;">
+      <div class="v-sidebar-menu vsm-default">
+        <div class="vsm-list">
+          <div class="vsm-header">Main</div>
+          <div class="vsm-item">
+            <a id="gereralform" routerLink="/dasboard" routerLinkActive="active-item" class="vsm-link">
+              <i class="vsm-icon pe-7s-rocket"></i>
+              <span class="vsm-title">Dashboard</span>
+            </a>
+          </div> 
+          <div class="vsm-header">Reports</div>
+          <div class="vsm-item">
+            <a id="gereralform" id="lnkreports"  routerLink="/reports" routerLinkActive="active-item" class="vsm-link">
+              <i class="vsm-icon pe-7s-graph3"></i>
+              <span class="vsm-title">Reports</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </perfect-scrollbar>
+  </div>
+</div>
+
+<ng-template #popTitleM>
+  <div class="row">
+    <div class="col-md-11">
+      Master
+    </div>
+  </div>
+</ng-template>
+<ng-template #popContentM>
+  <div class="v-sidebar-menu vsm-default">
+    <perfect-scrollbar [autoPropagation]="true" style="max-height: 300px;;">
+      <div class="vsm-dropdown">
+        <div class="vsm-list">        
+            <div class="vsm-item" *ngFor="let item of masteritemlist">
+              <a routerLinkActive="active-item" id="{{item.id}}" routerLink="{{item.routerLink}}" class="vsm-link">
+                <span class="vsm-title">
+                  {{item.name}}  
+                </span>
+              </a>
+            </div>      
+        </div>
+      </div>
+    </perfect-scrollbar>
+  </div>
+</ng-template>
+
+<ng-template #popTitleGP>
+  <div class="row">
+    <div class="col-md-11">
+      Grey Purchase
+    </div>
+  </div>
+</ng-template>
+<ng-template #popContentGP>
+  <div class="v-sidebar-menu vsm-default">
+    <div class="vsm-dropdown">
+      <div class="vsm-list">
+        <div class="vsm-item" *ngFor="let item of greypurchaseitemlist">
+          <a routerLinkActive="active-item" id="{{item.id}}" routerLink="{{item.routerLink}}" class="vsm-link">
+            <span class="vsm-title">
+              {{item.name}}  
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #popTitleFP>
+  <div class="row">
+    <div class="col-md-11">
+      Finished Purchase
+    </div>
+  </div>
+</ng-template>
+<ng-template #popContentFP>
+  <div class="v-sidebar-menu vsm-default">
+    <div class="vsm-dropdown">
+      <div class="vsm-list">
+        <div class="vsm-item" *ngFor="let item of finishedpurchaseitemlist">
+          <a routerLinkActive="active-item" id="{{item.id}}" routerLink="{{item.routerLink}}" class="vsm-link">
+            <span class="vsm-title">
+              {{item.name}}  
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #popTitleGEP>
+  <div class="row">
+    <div class="col-md-11">
+      General Purchase
+    </div>
+  </div>
+</ng-template>
+<ng-template #popContentGEP>
+  <div class="v-sidebar-menu vsm-default">
+    <div class="vsm-dropdown">
+      <div class="vsm-list">
+        <div class="vsm-item" *ngFor="let item of generalpurchaseitemlist">
+          <a routerLinkActive="active-item" id="{{item.id}}" routerLink="{{item.routerLink}}" class="vsm-link">
+            <span class="vsm-title">
+              {{item.name}}  
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #popTitleS>
+  <div class="row">
+    <div class="col-md-11">
+      Sale
+    </div>
+  </div>
+</ng-template>
+<ng-template #popContentS>
+  <div class="v-sidebar-menu vsm-default">
+    <div class="vsm-dropdown">
+      <div class="vsm-list">
+        <div class="vsm-item" *ngFor="let item of saleitemlist">
+          <a routerLinkActive="active-item" id="{{item.id}}" routerLink="{{item.routerLink}}" class="vsm-link">
+            <span class="vsm-title">
+              {{item.name}}  
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #popTitleJ>
+  <div class="row">
+    <div class="col-md-11">
+      Job
+    </div>
+  </div>
+</ng-template>
+<ng-template #popContentJ>
+  <div class="v-sidebar-menu vsm-default">
+    <div class="vsm-dropdown">
+      <div class="vsm-list">
+        <div class="vsm-item" *ngFor="let item of jobitemlist">
+          <a routerLinkActive="active-item" id="{{item.id}}" routerLink="{{item.routerLink}}" class="vsm-link">
+            <span class="vsm-title">
+              {{item.name}}  
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #popTitleMill>
+  <div class="row">
+    <div class="col-md-11">
+      Mill
+    </div>
+  </div>
+</ng-template>
+<ng-template #popContentMill>
+  <div class="v-sidebar-menu vsm-default">
+    <div class="vsm-dropdown">
+      <div class="vsm-list">
+        <div class="vsm-item" *ngFor="let item of millitemlist">
+          <a routerLinkActive="active-item" id="{{item.id}}" routerLink="{{item.routerLink}}" class="vsm-link">
+            <span class="vsm-title">
+              {{item.name}}  
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #popTitleR>
+  <div class="row">
+    <div class="col-md-11">
+      Finalization
+    </div>
+  </div>
+</ng-template>
+<ng-template #popContentR>
+  <div class="v-sidebar-menu vsm-default">
+    <div class="vsm-dropdown">
+      <div class="vsm-list">
+        <div class="vsm-item" *ngFor="let item of finalizationitemlist">
+          <a routerLinkActive="active-item" id="{{item.id}}" routerLink="{{item.routerLink}}" class="vsm-link">
+            <span class="vsm-title">
+              {{item.name}}  
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

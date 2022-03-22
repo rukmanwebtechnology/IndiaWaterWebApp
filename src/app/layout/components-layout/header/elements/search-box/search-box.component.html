@@ -1,0 +1,31 @@
+<!-- <div class="search-wrapper" [class.active]="isActive">
+  <div class="input-holder">
+      
+
+    <input type="text" [(ngModel)]="selected" placeholder="Type to search" class="search-input">
+    <button class="search-icon" (click)="isActive = true"><span></span></button>
+  </div>
+  <button class="close" (click)="isActive = false"></button>
+</div> -->
+ 
+<div class="searchbar">
+    <input [value]="searchboxvalue"
+        [(ngModel)]="searchboxvalue"
+      ngxTypeahead
+      placeholder="Type here to search..."
+      [taList]="myLocalDataList"
+      [taItemTpl]="myTemp"
+      (taSelected)="selectedTempStatic($event)" id="txtSearchBox" class="search_input" typeahead-open-on-focus>
+    <ng-template #myTemp let-item>
+      <div class="item-name" style="text-align: left; width: 230px;">
+        {{item.result.name}}
+      </div>
+      <!-- <div class="item-desc">
+        {{item.result.description}}
+      </div> -->
+    </ng-template>
+    
+    <!-- <button class="btn search_icon" id="btnsearchopen" *ngIf= "!isActive" (click)="toggle();"><i class="pe-7s-search"></i></button>
+    <button class="btn search_iconclose" id="btnsearchclose" *ngIf= "isActive" (click)="toggle()"><i class="pe-7s-close"></i></button> -->
+  </div>
+   
